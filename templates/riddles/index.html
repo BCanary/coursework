@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{% static "riddles/style.css" %}">
+	</head>
+	<body>
+		<header>
+			<div class="header-body">
+				
+			</div>
+		</header>
+		<div class="body">
+			<div class="body-inside">
+				<div class="body-left">
+					<div class="body-left-menu">
+					</div>
+				</div>
+				<div class="body-right">
+					<div class="info-bar">
+						<h1 class="info-bar-text">
+							{% if books_count > 0 %}
+							    Результаты поиска
+							{% else %}
+								Ничего не найдено
+							{% endif %}
+						</h1>
+					</div>
+					<div class="books">
+						{% for book in books %}
+							<div class="book-wrapper">
+								<div class="book-wrapper-up">
+									<div class="book-wrapper-center">
+										<div class="fast-book-info">
+											<div class="book-author">{{book.author}}</div>
+											<div class="book-name">{{book.name}}</div>
+										</div>
+										<div class="book-image-box">
+											<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" alt="bg-image" class="book-image-background-blured"></img>
+											<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" class="book-image" alt="image">
+										</div>
+									</div>
+								</div>
+								<div class="book-wrapper-down">
+									<span class="book-wrapper-down-text">Подробнее</span>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+		</footer>
+	</body>
+</html>

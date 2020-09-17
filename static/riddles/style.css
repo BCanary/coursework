@@ -1,0 +1,153 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f9feff;
+	font-family: Verdana;
+}
+
+header {
+	min-height: 200px;
+}
+.header-body {
+	margin: 20px;
+	height: 150px;
+	background-color: #92dfe8;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.body {
+	min-height: 1150px;
+	display: flex;
+}
+
+.body-inside {
+	display: flex;
+	margin: 0px 0px 0px 50px;
+	width: 100%;
+}
+
+.body-left {
+	min-height: inherit;
+	min-width: 300px;
+	max-width: 300px;
+}
+.body-left-menu {
+	background-color: #d0faff;
+	height: 450px;
+	border-radius: 20px;
+}
+
+.body-right {
+	display:flex;
+	flex-direction: column;
+	min-height: 450px;
+	min-width: 210px;
+	width: 100%;
+	margin-left: 50px;
+}
+.info-bar {
+	max-height: 4em;
+}
+.books {
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	min-height: 450px;
+	min-width: 210px;
+	width: 100%;
+	margin-left: 50px;
+	margin: 0px 0 0 -25px;
+}
+
+.book-wrapper {
+	width: 210px;
+	height: 220px;
+	background-color: #effdff;
+	cursor: pointer;
+	border-radius: 20px;
+	margin-left: 25px;
+	margin-top: 25px;
+}
+
+.book-wrapper-up {
+	height: 200px;
+	width: inherit;
+}
+.book-wrapper-center {
+	margin: 4px 20px 6px 20px;
+	height: inherit;
+}
+.book-wrapper-down {
+	height: 20px;
+	width: inherit;
+	background-color: #6ebdc6;
+	display: flex;
+	font-size: 10px;
+	color: #ffffff;
+	background-image: linear-gradient(to left,transparent,transparent 50%,#17adbe 50%,#17adbe);
+	background-size: 200% 100%;
+	transition: all .25s ease-in;
+	background-position: 100% 0;
+	border-radius: 0px 0px 20px 20px;
+}
+.book-wrapper:hover > .book-wrapper-down {
+	background-position: 0 0;
+}
+
+.book-wrapper-down-text {
+	text-transform: uppercase;
+	margin: auto;
+}
+
+.fast-book-info {
+	height: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	color: #222222;
+}
+.book-name {
+	margin: auto;
+	font-size: 10px;
+}
+.book-author {
+	margin: auto;
+}
+.book-image-background-blured {
+	position: absolute;
+	background-size: 100% 100%;
+	filter: blur(5px);
+	width: inherit;
+	height: inherit;
+}
+.book-image-box {
+	margin: 2px;
+	display: flex;
+	justify-content: center;
+	height: 162px;
+	width: 170px;
+}
+.book-image {
+	filter: blur(0px);
+	max-height: 162px;
+	max-width: 170px;
+}
+
+.down-style-light {
+	background-color: #effdff;
+}
+.style-light {
+	background-color: #ffffff;
+}
+
+footer {
+	min-height: 150px;
+	background-color: #052c31;
+	margin-top: 100px;
+}
