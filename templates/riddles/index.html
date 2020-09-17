@@ -8,7 +8,20 @@
 	<body>
 		<header>
 			<div class="header-body">
-				
+				<div class="search">
+					<div class="search-box">
+						<form action="/books/" class="search-box-form">
+							<input class="search-box-input input-box" name="search" placeholder="Поиск по библиотеке" type="text"/>
+							<button type="submit" class="search-box-button">
+								<img class="search-box-button-image" src="{% static "images/search.svg" %}">
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="logo">
+					<img class="logo-image" src="{% static "images/logo.png" %}"></img>
+				</div>
+				<div class="registration">reg</div>
 			</div>
 		</header>
 		<div class="body">

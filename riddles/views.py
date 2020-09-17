@@ -4,6 +4,8 @@ from .models import Book
 COUNT_OF_BOOKS_ON_PAGE = 24
 def index(request):
 	page = request.GET.get("page", "0")
+	search = request.GET.get("search", "")
+
 	all_objects = Book.objects.all()
 	objects = all_objects[0+COUNT_OF_BOOKS_ON_PAGE*int(page):COUNT_OF_BOOKS_ON_PAGE+COUNT_OF_BOOKS_ON_PAGE*int(page)]
 	books_count = len(objects)
