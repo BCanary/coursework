@@ -10,8 +10,9 @@
 			<div class="header-body">
 				<div class="search">
 					<div class="search-box">
-						<form action="/books/" class="search-box-form">
-							<input class="search-box-input input-box" name="search" placeholder="Поиск по библиотеке" type="text"/>
+						<form action="/books" class="search-box-form">
+							<div class="pre-search-box-input"></div>
+							<input class="search-box-input input-box" autocomplete="off" name="search" placeholder="Поиск по библиотеке" type="text"/>
 							<button type="submit" class="search-box-button">
 								<img class="search-box-button-image" src="{% static "images/search.svg" %}">
 							</button>
@@ -21,7 +22,10 @@
 				<div class="logo">
 					<img class="logo-image" src="{% static "images/logo.png" %}"></img>
 				</div>
-				<div class="registration">reg</div>
+				<div class="registration">
+					<div class="registration-center">
+						reg
+					</div></div>
 			</div>
 		</header>
 		<div class="body">
@@ -43,20 +47,25 @@
 					<div class="books">
 						{% for book in books %}
 							<div class="book-wrapper">
-								<div class="book-wrapper-up">
-									<div class="book-wrapper-center">
-										<div class="fast-book-info">
-											<div class="book-author">{{book.author}}</div>
-											<div class="book-name">{{book.name}}</div>
-										</div>
-										<div class="book-image-box">
-											<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" alt="bg-image" class="book-image-background-blured"></img>
-											<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" class="book-image" alt="image">
+								<div class="book-wrapper-front">
+									<div class="book-wrapper-up">
+										<div class="book-wrapper-center">
+											<div class="fast-book-info">
+												<div class="book-author">{{book.author}}</div>
+												<div class="book-name">{{book.name}}</div>
+											</div>
+											<div class="book-image-box">
+												<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" alt="bg-image" class="book-image-background-blured"></img>
+												<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" class="book-image" alt="image">
+											</div>
 										</div>
 									</div>
+									<div class="book-wrapper-down">
+										<span class="book-wrapper-down-text">Подробнее</span>
+									</div>
 								</div>
-								<div class="book-wrapper-down">
-									<span class="book-wrapper-down-text">Подробнее</span>
+								<div id="book-wrapper-back">
+										back
 								</div>
 							</div>
 						{% endfor %}
