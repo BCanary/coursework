@@ -5,15 +5,15 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #f9feff;
 	font-family: Georgia;
+	background: url("../images/bg.png");
 }
 
 header {
 	min-height: 200px;
 }
 .header-body {
-	margin: 20px 50px 20px 50px;
+	margin: 20px 40px 20px 40px;
 	height: 150px;
 	background-color: #92dfe8;
 	border-radius: 20px;
@@ -51,6 +51,8 @@ header {
 	border: 0px;
 	background-color: #d0faff;
 	outline: none;
+	margin: 0;
+	padding: 0;
 }
 
 .search-box-button {
@@ -80,9 +82,68 @@ header {
 }
 .registration {
 	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .registration-center {
-	margin: 30px;
+	display: flex;
+}
+.registration-image-div {
+	width: 50px;
+	height: 50px;
+}
+.registration-image {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px 0px 0px 10px;
+}
+.login-form {
+	height: 50px;
+	width: 200px;
+	display: flex;
+}
+.pre-form {
+	width: 5px;
+	height: 50px;
+	background-color: #d0faff;
+}
+.login-box-form {
+	display: flex;
+	flex-direction: column;
+}
+.login-box-input {
+	width: 155px;
+	height: 25px;
+}
+.password-box-input {
+	width: 130px;
+	height: 25px;
+}
+.login-box-input, .password-box-input {
+	font-size: 13px;
+}
+.login-box-button {
+	outline: none;
+	background-color: #e2fcff;
+	border: 0px;
+}
+
+.login-box-up, .login-box-down {
+	display: flex;
+	height: 25px;
+}
+.login-box-button-up {
+	min-width: 45px;
+	height: 25px;
+	border-radius: 0px 10px 0px 0px;
+	cursor: pointer;
+}
+.login-box-button-down {
+	min-width: 70px;
+	height: 25px;
+	border-radius: 0px 0px 10px 0px;
+	cursor: pointer;
 }
 
 .body {
@@ -92,8 +153,11 @@ header {
 
 .body-inside {
 	display: flex;
-	margin: 0px 0px 0px 50px;
+	margin: 0px 40px 0px 40px;
 	width: 100%;
+	background-color: #f9feff;
+	border-radius: 30px;
+	padding: 10px;
 }
 
 .body-left {
@@ -105,6 +169,29 @@ header {
 	background-color: #d0faff;
 	height: 450px;
 	border-radius: 20px;
+	padding: 20px 30px 20px 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.checkbox-left-menu {
+	margin-top: 20px;
+	align-items: center;
+}
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+	border: solid #fff;
+	outline: none;
+}
+
+.checkbox:hover {
+	background-color: #dae9eb;
+}
+
+.checbox:checked {
+	background-color: #1f7374;
 }
 
 .body-right {
@@ -146,13 +233,13 @@ header {
 	backface-visibility: hidden;
 }
 
-.book-wrapper-front:hover {
+/* .book-wrapper-front:hover {
   transform:rotateY(180deg);
 }
 .book-wrapper-back:hover {
 	transform:rotateY(180deg);
 }
-
+*/
 .book-wrapper-back {
 	position: absolute;
 	width: 210px;
@@ -185,7 +272,7 @@ header {
 	background-position: 100% 0;
 	border-radius: 0px 0px 20px 20px;
 }
-.book-wrapper:hover > .book-wrapper-down {
+.book-wrapper:hover .book-wrapper-down {
 	background-position: 0 0;
 }
 

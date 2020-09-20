@@ -10,7 +10,7 @@
 			<div class="header-body">
 				<div class="search">
 					<div class="search-box">
-						<form action="/books" class="search-box-form">
+						<form action="/books" class="search-box-form" id="search-form">
 							<div class="pre-search-box-input"></div>
 							<input class="search-box-input input-box" autocomplete="off" name="search" placeholder="Поиск по библиотеке" type="text"/>
 							<button type="submit" class="search-box-button">
@@ -24,14 +24,34 @@
 				</div>
 				<div class="registration">
 					<div class="registration-center">
-						reg
-					</div></div>
+						<div class="registration-image-div">
+							<img class="registration-image" src="../../static/images/profile/profile0.png"></img>
+						</div>
+						<div class="pre-form"></div>
+						<div class="login-form">
+							<form action="/login" class="login-box-form" method="POST">
+								<div class="login-box-up">
+									<input class="login-box-input input-box" autocomplete="off" name="login" placeholder="Логин" type="text"/>
+									<button type="submit" class="login-box-button login-box-button-up"></button>
+								</div>
+								<div class="login-box-down">
+									<input class="password-box-input input-box" autocomplete="off" name="password" placeholder="Пароль" type="password"/>
+									<button type="submit" class="login-box-button login-box-button-down">Войти</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</header>
 		<div class="body">
 			<div class="body-inside">
 				<div class="body-left">
 					<div class="body-left-menu">
+						<h3>Параметры поиска:</h3>
+						<div class="checkbox-left-menu"><input type="checkbox" class="checkbox" form="search-form" name="search-author">Поиск по автору</div>
+						<div class="checkbox-left-menu"><input type="checkbox" class="checkbox" form="search-form" name="search-name">Поиск по имени</div>
+						<div class="checkbox-left-menu"><input type="checkbox" class="checkbox" form="search-form" name="search-description">Поиск по описанию</div>
 					</div>
 				</div>
 				<div class="body-right">
@@ -63,9 +83,6 @@
 									<div class="book-wrapper-down">
 										<span class="book-wrapper-down-text">Подробнее</span>
 									</div>
-								</div>
-								<div id="book-wrapper-back">
-										back
 								</div>
 							</div>
 						{% endfor %}
