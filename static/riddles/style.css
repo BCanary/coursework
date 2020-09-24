@@ -204,14 +204,14 @@ header {
 	background-color: var(--button-color-black);
 	padding: 4px;
 }
-input[type=checkbox]:checked + .checkbox-left-menu {
+input[class="checkbox filter"]:checked + .checkbox-left-menu {
 	background-color: var(--button-color-black-hover);
 	color: #ffffff;
 }
 .checkbox {
 	outline: none;
 	position: absolute;
-	top: -99999px;
+	display: none;
 }
 
 .body-right {
@@ -252,24 +252,54 @@ input[type=checkbox]:checked + .checkbox-left-menu {
 	transition: 1s;
 	backface-visibility: hidden;
 }
-
-/* .book-wrapper-front:hover {
-  transform:rotateY(180deg);
-}
-.book-wrapper-back:hover {
-	transform:rotateY(180deg);
-}
-*/
 .book-wrapper-back {
 	position: absolute;
+	transform:rotateY(-180deg);
 	width: 210px;
 	height: 220px;
-	background-color: var(--background-color-div);
+	background-color: var(--header-color);
 	cursor: pointer;
 	border-radius: 20px;
 	transition: 1s;
 	backface-visibility: hidden;
 }
+input[class="checkbox book"]:checked + .book-wrapper > .book-wrapper-front {
+  transform:rotateY(180deg);
+}
+input[class="checkbox book"]:checked + .book-wrapper > .book-wrapper-back {
+  transform:rotateY(0deg);
+}
+
+.book-description, .book-wrapper-back-down-text {
+	color: white;
+}
+.book-description {
+	margin: 5px;
+}
+.button-url {
+	text-decoration:none;
+}
+.book-wrapper-back-up {
+	min-height: 180px;
+	width: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.book-wrapper-back-down {
+	height: 40px;
+	width: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.book-wrapper-back-down-text {
+	padding: 3px;
+	border-radius: 10px;
+	border: 2px solid var(--light-blue-color);
+	margin: auto;
+}
+
 
 .book-wrapper-up {
 	height: 200px;
