@@ -32,4 +32,6 @@ def index(request):
 	books_count = len(objects)
 	pages_count = len(all_objects)/COUNT_OF_BOOKS_ON_PAGE
 	data = {"pages_count": pages_count, "books": objects, "books_count": books_count}
-	return render(request, "riddles/index.html", context=data)
+	
+	RENDER = render(request, "riddles/index.html", context=data)
+	return RENDER
