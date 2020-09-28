@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import Book
+from bs4 import BeautifulSoup
+import os
+
 # Create your views here.
 COUNT_OF_BOOKS_ON_PAGE = 24
 def toCheckbox(checked):
@@ -49,4 +52,40 @@ def index(request):
 	data = {"pages_count": pages_count, "books": objects, "books_count": books_count, "filters": filters}
 
 	RENDER = render(request, "riddles/index.html", context=data)
+	return RENDER
+
+def tag(text):
+	return "<" + text + ">"
+def ctag(text):
+	return "</" + text + ">"
+
+MAX_SYMBLOS = 1900
+def book_index(request, book_id=1):
+	page = request.GET.get("page", "0")
+
+	book = Book.objects.get(id=book_id)
+
+	text = ""
+	with open("C:/Users/vladi/Desktop/coursework/riddles/book" + str(book_id) + ".fb2", "r", encoding='utf-8') as file:
+		#content = file.readlines()
+		# Combine the lines in the list into a string
+		#content = "".join(content)
+
+		bs = BeautifulSoup(file, "lxml")
+
+		text = bs.body
+
+		to_replace = {
+			"emphasis": "i",
+			"title": "h2",
+			"empty-line": "br",
+			"section": "div class=\"book-section\""
+		}
+		#for i in to_replace:
+			#print(i, "=", to_replace[i])
+			#text = text.replace(tag(i), tag(to_replace[i]))
+			#text = text.replace(ctag(i), ctag(to_replace[i]))
+	print(text)
+	data = {"book": book, "book_text": text}
+	RENDER = render(request, "riddles/books_index.html", context=data)
 	return RENDER

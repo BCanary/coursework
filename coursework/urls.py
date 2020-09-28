@@ -23,5 +23,6 @@ from riddles import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: HttpResponseRedirect("/books")),
-    path('books', views.index, name="index")
+    path('books', views.index, name="index"),
+    path('book/<int:book_id>', views.book_index, name="book_index")
 ]

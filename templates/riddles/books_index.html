@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static "riddles/style.css" %}">
 	</head>
 	<body>
+    <input type="checkbox" class="checkbox read" form="search-form" id="read-mode" name="read-mode"><div class="read-mode"></div>
 		<header>
 			<div class="header-body">
 				<div class="search">
@@ -15,7 +16,7 @@
 							{% if filters.search == "" %}
 								<input class="search-box-input input-box" autocomplete="off" name="search" placeholder="Поиск по библиотеке" type="text"/>
 							{% else %}
-								<input class="search-box-input input-box" value={{ filters.search }} autocomplete="off" name="search" placeholder="Поиск по библиотеке" type="text"/>
+								<input class="search-box-input input-box" autocomplete="off" name="search" placeholder="Поиск по библиотеке" type="text" value={{ filters.search }}>
 							{% endif %}
 							<button type="submit" class="search-box-button">
 								<img class="search-box-button-image" src="{% static "images/search.svg" %}">
@@ -57,7 +58,7 @@
 						</div>
 						<div class="body-left-menu-filters">
 							<input type="checkbox" class="checkbox filter" form="search-form" id="search-author" name="search-author" {{ filters.author }}><label class="checkbox-left-menu" for="search-author"><p class="center-text">Поиск по автору</p></label>
-							<input type="checkbox" class="checkbox filter" form="search-form" id="search-name" name="search-name" {{ filters.name }}><label class="checkbox-left-menu" for="search-name"><p class="center-text"><p class="center-text">Поиск по имени</p></label></input>
+							<input type="checkbox" class="checkbox filter" form="search-form" id="search-name" name="search-name" {{ filters.name }}><label class="checkbox-left-menu" for="search-name"><p class="center-text"><p class="center-text">Поиск по имени</p></label>
 							<input type="checkbox" class="checkbox filter" form="search-form" id="search-description" name="search-description" {{ filters.description }}><label class="checkbox-left-menu" for="search-description"><p class="center-text">Поиск по описанию</p></label>
 						</div>
 					</div>
@@ -65,49 +66,15 @@
 				<div class="body-right">
 					<div class="info-bar">
 						<h1 class="info-bar-text">
-							{% if books_count > 0 %}
-							    Результаты поиска
-							{% else %}
-								Ничего не найдено
-							{% endif %}
+              {{ book.name }}
 						</h1>
 					</div>
-					<div class="books">
-						{% for book in books %}
-							<input type="checkbox" class="checkbox book" id="book{{ book.id }}">
-							<label class="book-wrapper" for="book{{ book.id }}">
-								<div class="book-wrapper-front">
-									<div class="book-wrapper-up">
-										<div class="book-wrapper-center">
-											<div class="fast-book-info">
-												<div class="book-author">{{book.author}}</div>
-												<div class="book-name">{{book.name}}</div>
-											</div>
-											<div class="book-image-box">
-												<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" alt="bg-image" class="book-image-background-blured"></img>
-												<img src="../../static/images/books/book{{book.image_id}}.{{book.image_format}}" class="book-image" alt="image">
-											</div>
-										</div>
-									</div>
-									<div class="book-wrapper-down">
-										<span class="book-wrapper-down-text">Подробнее</span>
-									</div>
-								</div>
-
-								<div class="book-wrapper-back">
-									<div class="book-wrapper-back-up">
-										<span class="book-description"> {{ book.name }} </span>
-									</div>
-									<div class="book-wrapper-back-center">
-										<span class="book-description"><p align="center">{{ book.description }}</p></span>
-									</div>
-									<div class="book-wrapper-back-down">
-										<a href="book/{{ book.id }}" class="button-url"><span class="book-wrapper-back-down-text">Читать</span></a>
-									</div>
-								</div>
-							</label>
-						{% endfor %}
+					<div class="book-reader">
+            <div class="book-reader-center">
+                {{ book_text|safe }}
+            </div>
 					</div>
+          <label class="checkbox-left-menu button-read" for="read-mode"><p class="center-text">Режим чтения</p></label>
 				</div>
 			</div>
 		</div>
