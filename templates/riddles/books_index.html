@@ -8,6 +8,7 @@
 	<body>
     <input type="checkbox" class="checkbox read" form="search-form" id="read-mode" name="read-mode"><div class="read-mode"></div>
 		<header>
+			<div class="margin-top-bag"></div>
 			<div class="header-body">
 				<div class="search">
 					<div class="search-box">
@@ -69,12 +70,17 @@
               {{ book.name }}
 						</h1>
 					</div>
-					<div class="book-reader">
-            <div class="book-reader-center">
-                {{ book_text|safe }}
-            </div>
+					<div class="book-block">
+						<div class="book-reader">
+							<div class="z-index-book">
+								<div class="section-name">{{ section_title|safe }}</div>
+		            <div class="book-reader-center">
+		                {{ book_text|safe }}
+		            </div>
+								<label class="checkbox-left-menu button-read" for="read-mode"><p class="center-text">Режим чтения</p></label>
+							</div>
+						</div>
 					</div>
-          <label class="checkbox-left-menu button-read" for="read-mode"><p class="center-text">Режим чтения</p></label>
 				</div>
 			</div>
 		</div>

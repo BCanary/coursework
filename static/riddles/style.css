@@ -3,10 +3,10 @@ html {
 }
 
 body {
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 	font-family: Georgia;
-	background: url("../images/bg.png");
+	background-image: url("../images/bg.png");
 }
 
 header {
@@ -26,8 +26,12 @@ header {
 	--sepiya-color: #e8c15f;
 }
 
+.margin-top-bag {
+	width: 100%;
+	height: 20px;
+}
 .header-body {
-	margin: 20px 40px 20px 40px;
+	margin: 0px 40px 20px 40px;
 	height: 150px;
 	background-color: var(--header-color);
 	border-radius: 20px;
@@ -235,7 +239,7 @@ input[class="checkbox filter"]:checked + .checkbox-left-menu {
 	border-radius: 30px;
 	display:flex;
 	flex-direction: column;
-	min-height: 450px;
+	min-height: 100vh;
 	min-width: 210px;
 	width: 100%;
 	margin-left: 30px;
@@ -410,36 +414,42 @@ input[class="checkbox book"]:checked + .book-wrapper > .book-wrapper-back {
 }
 
 .button-read {
-	position: absolute;
-	z-index: 1;
-	margin-top: 100px;
-	margin-left: 30px;
-	width: 600px;
+	border-radius: 0px 0px 30px 30px;
 }
 
+.book-block {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	height: 750px;
+}
 .book-reader {
+	height: 750px;
+	width: 700px;
+}
+.z-index-book {
+	border-radius: 30px 30px 30px 30px;
+	padding-top:20px;
 	position: absolute;
 	z-index: 1;
 	display: flex;
-	justify-content: center;
-	border-radius: 30px;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	margin-top: 150px;
+	align-items: center;
+	flex-direction: column;
+	height: inherit;
+	width: inherit;
 	background-color: var(--sepiya-color);
-	height: 650px;
-	width: 700px;
+
 }
 .read-mode {
-	position: absolute;
+	position:fixed;
 	z-index: -1;
-	width: 500vw;
-	height: 500vh;
+	width: 100vw;
+	height: 100vh;
 	background-color: #00000000;
 	transition: 1s;
 }
 input[class="checkbox read"]:checked + .read-mode {
-  background-color: #000000DF;
+  background-color: #000000F0;
 	z-index: 0;
 }
 input[class="checkbox read"]:checked {
@@ -448,7 +458,10 @@ input[class="checkbox read"]:checked {
 
 .book-reader-center {
 	width: 85%;
+	height: inherit;
 	font-family: 'Times New Roman';
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .down-style-light {
 	background-color: var(--background-color-div);

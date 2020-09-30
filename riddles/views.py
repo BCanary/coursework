@@ -59,21 +59,30 @@ def tag(text):
 def ctag(text):
 	return "</" + text + ">"
 
-MAX_SYMBLOS = 1900
 def book_index(request, book_id=1):
 	page = request.GET.get("page", "0")
 
 	book = Book.objects.get(id=book_id)
 
 	text = ""
-	with open("C:/Users/vladi/Desktop/coursework/riddles/book" + str(book_id) + ".fb2", "r", encoding='utf-8') as file:
+	with open("C:/Users/vladi/Desktop/coursework/riddles/books/book" + str(book_id) + ".fb2", "r", encoding='utf-8') as file:
 		#content = file.readlines()
 		# Combine the lines in the list into a string
 		#content = "".join(content)
 
+		file = file.read()
+		file = file.replace("body", "bodyz")
+		#print(file)
 		bs = BeautifulSoup(file, "lxml")
 
-		text = bs.body
+		text = bs.find("bodyz")
+		try:
+			section_title = text.title.prettify()
+		except:
+			section_title = "<h2>Гроза</h2>"
+		print(text)
+		MAX_SYMBLOS = 2000
+		text = text.prettify()[MAX_SYMBOLS*int(page):MAX_SYMBOLS+MAX_SYMBOLS*int(page)]
 
 		to_replace = {
 			"emphasis": "i",
@@ -81,11 +90,11 @@ def book_index(request, book_id=1):
 			"empty-line": "br",
 			"section": "div class=\"book-section\""
 		}
-		#for i in to_replace:
-			#print(i, "=", to_replace[i])
-			#text = text.replace(tag(i), tag(to_replace[i]))
-			#text = text.replace(ctag(i), ctag(to_replace[i]))
-	print(text)
-	data = {"book": book, "book_text": text}
+		for i in to_replace:
+			print(i, "=", to_replace[i])
+			text = text.replace(tag(i), tag(to_replace[i]))
+			text = text.replace(ctag(i), ctag(to_replace[i]))
+
+	data = {"book": book, "book_text": text, "section_title": section_title}
 	RENDER = render(request, "riddles/books_index.html", context=data)
 	return RENDER
