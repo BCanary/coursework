@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static "riddles/style.css" %}">
 	</head>
 	<body>
-    <input type="checkbox" class="checkbox read" form="search-form" id="read-mode" name="read-mode"><div class="read-mode"></div>
+    <input type="checkbox" class="checkbox read" id="read-mode" name="read-mode" form="page-form" {{ is_dark_mode }}><div class="read-mode"></div>
 		<header>
 			<div class="margin-top-bag"></div>
 			<div class="header-body">
@@ -77,7 +77,13 @@
 		            <div class="book-reader-center">
 		                {{ book_text|safe }}
 		            </div>
-								<label class="checkbox-left-menu button-read" for="read-mode"><p class="center-text">Режим чтения</p></label>
+								<form action={{ book_page }} id="page-form">
+									<label class="checkbox-left-menu button-read" for="read-mode"><p class="center-text">Режим чтения</p></label>
+									<input type="text" class="checkbox filter" form="page-form" id="page" name="page" value={{ next_page }}>
+									<input type="text" class="checkbox filter" form="page-form" id="section" name="section" value={{ section }}>
+									<input type="submit" class="checkbox filter" form="page-form" id="page-next">
+									<label class="checkbox-left-menu button-read" for="page-next"><p class="center-text">Далее</p></label>
+								</form>
 							</div>
 						</div>
 					</div>
