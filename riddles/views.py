@@ -79,7 +79,7 @@ def book_index(request, book_id=1):
 		try:
 			section_title = text.title.prettify()
 		except:
-			section_title = "<h2>Гроза</h2>"
+			section_title = "<h2>" + book.name + "</h2>"
 		print(text)
 		MAX_SYMBLOS = 2000
 		text = text.prettify()[MAX_SYMBOLS*int(page):MAX_SYMBOLS+MAX_SYMBOLS*int(page)]
